@@ -1,0 +1,20 @@
+<div class="container back">
+  <div class="color-overlay back">
+    <div class="panel" style="overflow:scroll">
+      <div class="row" style="text-align: left;margin-left:10px">
+        <div>
+          <!-- <p-tabView (onChange)="handleRoutes($event)">
+            <p-tabPanel header="Home" routerLink="/home" routerLinkActive="active" headerStyleClass="tabs" ></p-tabPanel>
+            <p-tabPanel header="Survey Form" routerLink="/survey" routerLinkActive="active" headerStyleClass="tabs" [routerLinkActiveOptions]="{exact: true}"></p-tabPanel>
+            <router-outlet></router-outlet>
+          </p-tabView> -->
+          <div (onChange)="handleRoutes($event)" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+            <a class="tab-links" routerLink="/home">Home</a>
+            <a class="tab-links" routerLink="/survey">Survey</a>
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

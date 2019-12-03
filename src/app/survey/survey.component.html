@@ -1,0 +1,247 @@
+<!--reference: https://angular.io/guide/forms -->
+<div class="container" [hidden]="submitted">
+  <h1 [hidden]=showstudents>GMU Student Survey Form</h1>
+  <h1 [hidden]=!showstudents>Survey's Completed</h1>
+  <form #surveyForm="ngForm" (ngSubmit)="onSubmit(surveyForm.value)" [hidden]=showstudents>
+    <div class="form-group form-inline">
+      <label for="studentId">StudentID</label>&nbsp;&nbsp;&nbsp;
+      <input type="text" class="form-control" id="studentId" required [(ngModel)]="model.studentId" name="studentId"
+        #studentId="ngModel">
+      <div class="showalert">
+        <div [hidden]="studentId.valid || studentId.pristine" style="margin-top: 15px; padding: 6px;"
+          class="alert alert-danger">
+          StudentID is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label for="firstname">First Name</label>&nbsp;
+      <input type="text" class="form-control" id="firstname" required [(ngModel)]="model.firstname" name="firstname" #firstname="ngModel">
+      <div class="showalert">
+        <div [hidden]="firstname.valid || firstname.pristine" style="margin-top: 15px; padding: 6px;" class="alert alert-danger">
+          First Name is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label for="lastname">Last Name</label>&nbsp;
+      <input type="text" class="form-control" id="lastname" required [(ngModel)]="model.lastname" name="lastname" #lastname="ngModel">
+      <div class="showalert">
+        <div [hidden]="lastname.valid || lastname.pristine" style="margin-top: 15px; padding: 6px;" class="alert alert-danger">
+          Last Name is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label for="address">Address</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" class="form-control" id="address" required [(ngModel)]="model.address" name="address"
+        #address="ngModel">
+      <div class="showalert">
+        <div [hidden]="address.valid || address.pristine" style="margin-top: 15px; padding: 6px;"
+          class="alert alert-danger">
+          Address is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label for="city">City</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" class="form-control" id="city" required [(ngModel)]="model.city" name="city" #city="ngModel">
+      <div class="showalert">
+        <div [hidden]="city.valid || city.pristine" style="margin-top: 15px; padding: 6px;" class="alert alert-danger">
+          City is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label for="state">State</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" class="form-control" id="state" required [(ngModel)]="model.state" name="state"
+        #state="ngModel">
+      <div class="showalert">
+        <div [hidden]="state.valid || state.pristine" style="margin-top: 15px; padding: 6px;"
+          class="alert alert-danger">
+          State is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label for="zip">Zip</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" class="form-control" id="zip" required [(ngModel)]="model.zip" name="zip" #zip="ngModel">
+      <div class="showalert">
+        <div [hidden]="zip.valid || zip.pristine" style="margin-top: 15px; padding: 6px;" class="alert alert-danger">
+          Zip is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label for="phone">Phone</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" class="form-control" id="phone" placeholder="123-456-7890" required [(ngModel)]="model.phone"
+        name="phone" #phone="ngModel">
+      <div class="showalert">
+        <div [hidden]="phone.valid || phone.pristine" style="margin-top: 15px; padding: 6px;"
+          class="alert alert-danger">
+          Phone is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label for="email">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" class="form-control" id="email" placeholder="user@domain.com" required
+        [(ngModel)]="model.email" name="email" #email="ngModel">
+      <div class="showalert">
+        <div [hidden]="email.valid || email.pristine" style="margin-top: 15px; padding: 6px;"
+          class="alert alert-danger">
+          email is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label for="homePage">URL</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" class="form-control" id="homePage" placeholder="http://www.yourhomepage.com" required
+        [(ngModel)]="model.homePage" name="homePage" #homePage="ngModel">
+      <div class="showalert">
+        <div [hidden]="homePage.valid || homePage.pristine" style="margin-top: 15px; padding: 6px;"
+          class="alert alert-danger">
+          URL is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label for="dateprovided">Date</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" class="form-control" id="dateprovided" placeholder="mm/dd/yyyy" required
+        [(ngModel)]="model.dateprovided" name="dateprovided" #dateprovided="ngModel">
+      <div class="showalert">
+        <div [hidden]="dateprovided.valid || dateprovided.pristine" style="margin-top: 15px; padding: 6px;"
+          class="alert alert-danger">
+          Date is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="liked">What did you like most about GMU's Campus?: </label>
+      <div>
+        <input type="checkbox" name="liked" (change)="checkUpdate('Students')"> Students <br />
+        <input type="checkbox" name="liked" (change)="checkUpdate('Location')"> Location <br />
+        <input type="checkbox" name="liked" (change)="checkUpdate('Campus')"> Campus <br />
+        <input type="checkbox" name="liked" (change)="checkUpdate('Atmosphere')"> Atmosphere <br />
+        <input type="checkbox" name="liked" (change)="checkUpdate('Dorm Rooms')"> Dorm Rooms <br />
+        <input type="checkbox" name="liked" (change)="checkUpdate('Sports')"> Sports <br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="interest">Let us know how you became interested in GMU?</label> <br />
+      <input type="radio" [(ngModel)]="model.interest" name="interest" id="interest" value="Friends"> Friends <br />
+      <input type="radio" [(ngModel)]="model.interest" name="interest" id="interest" value="Television"> Television <br />
+      <input type="radio" [(ngModel)]="model.interest" name="interest" id="interest" value="Internet"> Internet <br />
+      <input type="radio" [(ngModel)]="model.interest" name="interest" id="interest" value="Other"> Other <br />
+    </div>
+
+    <div class="form-group">
+      <label for="recommend">Would you recommend GMU?</label>
+      <select class="form-recommend" id="recommend" required [(ngModel)]="model.recommend" name="recommend">
+        <option *ngFor="let r of recommend" [value]="r">{{r}}</option>
+      </select>
+    </div>
+
+    <!--initiates get call within survey.component.ts to populate list of students in DB-->
+    <button type="button" class="btn btn-default survey-buttons" (click)="getStudentData('/list')">Show Students</button>
+    <!--initiates form reset-->
+    <button type="button" class="btn btn-default survey-buttons" (click)="clearForm(surveyForm)">Reset</button>
+    <!--initiates onSubmit function within survey.component.ts-->
+    <button type="submit" class="btn btn-success survey-buttons" [disabled]="!surveyForm.form.valid">Submit</button>
+  </form>
+</div>
+<!--this div will show up after the user clicks the submit button-->
+<div [hidden]="!submitted">
+  <h2>You submitted the following:</h2>
+  <div class="row">
+    <div class="col-xs-3">StudentId</div>
+    <div class="col-xs-9">{{ model.studentId }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">First Name</div>
+    <div class="col-xs-9">{{ model.firstname }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Last Name</div>
+    <div class="col-xs-9">{{ model.lastname }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Address</div>
+    <div class="col-xs-9">{{ model.address }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">City</div>
+    <div class="col-xs-9">{{ model.city }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">State</div>
+    <div class="col-xs-9">{{ model.state }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Zip</div>
+    <div class="col-xs-9">{{ model.zip }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Phone</div>
+    <div class="col-xs-9">{{ model.phone }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Email</div>
+    <div class="col-xs-9">{{ model.email }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">URL</div>
+    <div class="col-xs-9">{{ model.homePage }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Date</div>
+    <div class="col-xs-9">{{ model.dateprovided }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Liked</div>
+    <div class="col-xs-9">{{ model.liked }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Interest</div>
+    <div class="col-xs-9">{{ model.interest }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Recommend</div>
+    <div class="col-xs-9">{{ model.recommend }}</div>
+  </div>
+  <br>
+  <!--this button will bring the form back into view to edit for another submission-->
+  <button type="button" class="btn btn-default table-button" (click)="goBackToHomePage('')">Go Home</button>
+</div>
+
+<div [hidden]=!showstudents>
+  <p-table [value]="newStudents" autoLayout="true">
+    <ng-template pTemplate="header">
+      <tr>
+        <th *ngFor="let col of cols">
+          {{col.header}}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-student>
+      <tr>
+        <td *ngFor="let col of cols">
+          {{student[col.field]}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <button *ngIf="showstudents" type="button" class="btn btn-default table-button" (click)="goBackToHomePage('')">Go Home</button>
+</div>
